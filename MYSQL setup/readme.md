@@ -30,3 +30,16 @@ I finally looked at a video that showed me the setup process for creating a MySQ
 ## Final Attempt:
 I created the database using the parameters given by you in regards to it being Flexible and B1ms. I had not seen these options before when creating the SQL database and so I definitely felt more confident in what I was doing. Once the database was done deploying I went to the connection section of it where I found instructions on how to connect specifically to MySQL Workbench at https://portal.azure.com/#@stonybrook365.onmicrosoft.com/resource/subscriptions/3b4e4fbc-eeed-4b6c-a82e-7a53fb40af26/resourceGroups/hha504-wk4a/providers/Microsoft.DBforMySQL/flexibleServers/mysql-azure-wk4a/networking. I had to make sure that I added the Firewall rule of AllowAll using 0.0.0.0. I then went into MySQL workbench and opened a new connection. I put in my hostname of mysql-azure-wk4a.mysql.database.azure.com, my username johncd and my password. Once I tested the connection and confirmed that it worked I finally finished it. 
 
+# Python
+Here I will explain how I attempted to connect to my database using python with the appropriate libraries and the issues that I encountered along the way. 
+
+## Attempt
+First I used the template given to us in class to try and connect to my database that I created in Azure. I then created a .env file to store various information of my database such as:
+DB_HOST=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+DB_PORT=
+DB_CHARSET=
+
+Then I created a .gitignroe file to ensure that once I push these updates to Git Hub this file wouldn't be shown as it has my credentials for accessing the database. Once I set up the app.py file I ran it, but ran into a connection issue. The error came from "Unknown database” and so I looked to see if it was a connection issue. I then looked up to see that possibly the ‘require_secure_transport’ server parameter in my Azure database was the issue. I then turned it OFF and restarted the database. After it was done I ran the code again, but it still had the same error. Trying over and over I still had the same error and couldn’t get it to work sadly. 
